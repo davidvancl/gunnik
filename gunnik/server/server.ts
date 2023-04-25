@@ -13,12 +13,6 @@ gun.on('hi', peer => {
 let opts: GunOptions = {
 
 }
-// const gun = GUN({
-//     web: server,
-//     multicast: true, // Povolení multicastu
-//     multicastAddress: "147.230.255.255",
-//     multicastPort: 8080 // Nastavení multicast portu
-// });
 
 server.on('connect', () => {
     console.log("client connected");
