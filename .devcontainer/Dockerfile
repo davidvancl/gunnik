@@ -8,6 +8,7 @@ RUN dnf -y update
 
 RUN dnf -y install nodejs
 RUN dnf -y install git-all
+RUN git config --global --add safe.directory /gunnik
 
 WORKDIR /gunnik
 
