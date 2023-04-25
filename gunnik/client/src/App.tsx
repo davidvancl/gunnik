@@ -10,8 +10,8 @@ function App() {
   const [gun, setGun] = useState<IGunInstance<any>>();
 
   useEffect(() => {
-    setGun(GUN("http://147.230.237.85:8765/gun"));
     console.log("Starting server ...");
+    setGun(GUN("http://147.230.236.150:8765/gun"));
   }, []);
 
   useEffect(() => {
@@ -24,17 +24,17 @@ function App() {
   }, [gun]);
 
   const updateText = (event: any) => {
-      setText(event.target.value);
-      if (gun !== undefined) {
-        gun.get('mark').get('live').put(event.target.value);
-      }
+    setText(event.target.value);
+    if (gun !== undefined) {
+      gun.get('mark').get('live').put(event.target.value);
+    }
   }
 
   return <div className="App">
-      <InputGroup>
-        <InputGroup.Text>With textarea</InputGroup.Text>
-        <Form.Control as="textarea" value={text} onChange={updateText} aria-label="With textarea" />
-      </InputGroup>
+    <InputGroup>
+      <InputGroup.Text>With textarea</InputGroup.Text>
+      <Form.Control as="textarea" value={text} onChange={updateText} aria-label="With textarea" />
+    </InputGroup>
   </div>;
 }
 
