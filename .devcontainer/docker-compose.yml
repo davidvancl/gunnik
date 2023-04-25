@@ -10,5 +10,5 @@ services:
       - ./gunnik:/gunnik
       stdin_open: true
       tty: true
-      restart: always
+      restart: unless-stopped
       
