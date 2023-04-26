@@ -7,6 +7,7 @@ RUN dnf -y upgrade
 RUN dnf -y update
 
 RUN dnf -y install nodejs
+RUN npm install --global yarn
 RUN dnf -y install git-all
 
 ARG CONTAINER_USER=devuser
