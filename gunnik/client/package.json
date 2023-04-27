@@ -39,7 +39,6 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
-    "request": "2.88.2",
     "style-loader": "^3.3.2"
   }
 }
