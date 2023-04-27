@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -7,14 +8,14 @@ module.exports = {
         './content/content': './src/content/content.ts',
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
         filename: '[name].js'
     },
     devServer: {
         port: 8086,
         allowedHosts: 'all',
         static: {
-            directory: path.resolve(__dirname, './dist')
+            directory: path.resolve(__dirname, './build')
         }
     },
     module: {
@@ -38,5 +39,13 @@ module.exports = {
         alias: {
             "@components": path.resolve(__dirname, "src/components"),
         }
-    }
+    },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                { from: "./src/manifest.json", to: "./manifest.json" },
+                { from: "./public/index.html", to: "./index.html" }
+            ],
+        }),
+    ],
 }

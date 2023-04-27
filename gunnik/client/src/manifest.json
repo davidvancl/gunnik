@@ -1,0 +1,40 @@
+{
+    "name": "Gunnik extension",
+    "author": "David Vancl",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "description": "Gunnik extension",
+    "options_ui": {
+        "page": "index.html"
+    },
+    "permissions": [
+        "tabs",
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "content/content.js"
+            ]
+        }
+    ],
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ],
+        "type": "module"
+    },
+    "action": {
+        "default_title": "Gunnik extension",
+        "default_popup": "index.html"
+    }
+}
