@@ -1,10 +1,14 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/Index.tsx',
+    entry: {
+        './artefact': './src/Index.tsx',
+        './background/background': './src/background/background.ts',
+        './content/content': './src/content/content.ts',
+    },
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'artefact.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js'
     },
     devServer: {
         port: 8086,

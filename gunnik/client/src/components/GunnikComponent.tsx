@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Gunn, { IGunInstance } from 'gun';
+import browser from 'webextension-polyfill';
 import { Form, InputGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
