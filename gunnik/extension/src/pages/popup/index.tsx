@@ -1,9 +1,11 @@
-import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client';
 import App from './App'
+import React from 'react';
 
 console.log('popup script')
 
-const root = document.querySelector('#root')
+const container = document.querySelector('#root') as HTMLElement;
 
-render(<App />, root)
+
+const root = createRoot(container);
+root.render(<App />);

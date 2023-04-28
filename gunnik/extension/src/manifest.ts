@@ -5,14 +5,13 @@ const manifest: ManifestV3 = {
     name: "Gunnik",
     description: "Simple use of gun.js for now.",
     // background: {
-    //     page: {
-    //         scripts: ["background/index.ts"]
-    //     }
+    //     service_worker: "background/index.js",
+    //     type: "module"
     // },
 
     content_scripts: [
         {
-            js: ["content/index.ts"],
+            js: ["content/index.js"],
             matches: ["https://*/*", "http://*/*"]
         },
     ],
