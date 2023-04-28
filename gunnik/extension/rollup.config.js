@@ -22,7 +22,7 @@ export default {
       'process.env.NODE_ENV': isProduction ? JSON.stringify('production') : JSON.stringify('development'),
       preventAssignment: true
     }),
-    chromeExtension(),
+    chromeExtension({ browserPolyfill: true }),
     // Adds a Chrome extension reloader during watch mode
     simpleReloader(),
     resolve(),
