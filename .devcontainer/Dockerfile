@@ -1,6 +1,6 @@
 FROM fedora:39
 
-LABEL autho="develop.programme@gmail.com"
+LABEL author="develop.programme@gmail.com"
 LABEL version=0.0.1
 
 RUN dnf -y upgrade
@@ -20,21 +20,20 @@ RUN source $NVM_DIR/nvm.sh \
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
-RUN node -v
-RUN npm -v
-
 RUN npm install --global yarn
 RUN dnf -y install git-all
 
 ARG CONTAINER_USER=devuser
+ARG CONTAINER_USER_PASSWORD=Aa123456
 ARG CONTAINER_GROUP=devusers
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 RUN groupadd -g $USER_UID $CONTAINER_GROUP
-RUN useradd $CONTAINER_USER
 
+RUN useradd $CONTAINER_USER && echo "$CONTAINER_USER:$CONTAINER_USER_PASSWORD" | chpasswd
 RUN usermod -G $CONTAINER_GROUP $CONTAINER_USER
+RUN sudo usermod -aG wheel $CONTAINER_USER
 
 WORKDIR /gunnik
 
