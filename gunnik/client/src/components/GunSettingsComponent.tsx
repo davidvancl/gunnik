@@ -3,6 +3,7 @@ import '@assets/components/GunSettingsComponent'
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import SettingsContext from '@contexts/SettingsContext';
 import { v4 as uuid } from 'uuid';
+import browser from 'webextension-polyfill';
 
 function GunSettingsComponent() {
     const [ip, setIP] = useState<string>("");
@@ -30,6 +31,12 @@ function GunSettingsComponent() {
     }
 
     const handleSubmit = () => {
+        browser.storage.local.set({
+            [window.location.hostname]: document.title,
+        }).then(() => {
+            browser.runtime.sendMessage(`Saved document title for ${window.location.hostname}`);
+        });
+
         setSettings({ ...settings, ipAddress: ip, idHash: hash, portAddress: port });
     }
 
