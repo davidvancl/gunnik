@@ -1,7 +1,7 @@
 FROM fedora:39
 
 LABEL author="develop.programme@gmail.com"
-LABEL version=0.0.1
+LABEL version=0.0.2
 
 RUN dnf -y upgrade
 RUN dnf -y update
