@@ -30,15 +30,17 @@ module.exports = env => {
                     },
                 },
                 {
-                    test: /\.css$/,
-                    use: ['style-loader', 'css-loader']
+                    test: /\.(css|scss)$/,
+                    use: ['style-loader', 'css-loader', 'sass-loader']
                 }
             ]
         },
         resolve: {
-            extensions: ['.tsx', '.ts', '.jsx', '.js'],
+            extensions: ['.tsx', '.ts', '.jsx', '.js', '.css', '.scss'],
             alias: {
                 "@components": path.resolve(__dirname, "src/components"),
+                "@assets": path.resolve(__dirname, "src/assets/"),
+                "@contexts": path.resolve(__dirname, "src/contexts/"),
             }
         },
         plugins: [

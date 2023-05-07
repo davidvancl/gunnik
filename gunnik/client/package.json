@@ -19,6 +19,7 @@
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
+    "node-sass": "^8.0.0",
     "prettier": "^2.8.8",
     "regenerator-runtime": "^0.13.11",
     "typescript": "^5.0.4",
@@ -42,6 +43,8 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
-    "style-loader": "^3.3.2"
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
+    "uuidv4": "^6.2.13"
   }
 }
